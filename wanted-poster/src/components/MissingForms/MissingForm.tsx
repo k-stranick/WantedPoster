@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styles from "./MissingForm.module.css";
 
 const MissingForm: React.FC = () => {
   const [email, setEmail] = useState<string>("");
@@ -11,15 +12,16 @@ const MissingForm: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ maxWidth: 400, margin: "0 auto" }}>
+    <form onSubmit={handleSubmit} className={styles.formWrapper}>
       <div>
         <label htmlFor="email">Email:</label>
         <input
           type="email"
           id="email"
           value={email}
+          required
           onChange={(e) => setEmail(e.target.value)}
-          style={{ width: "100%", padding: "10px", marginBottom: "10px" }}
+          className={styles.inputField}
         />
       </div>
       <div>
@@ -30,15 +32,15 @@ const MissingForm: React.FC = () => {
           value={comments}
           required
           onChange={(e) => setComments(e.target.value)}
-          style={{ width: "100%", padding: "10px", marginBottom: "10px" }}
+          className={styles.inputField}
         />
       </div>
-      <button type="submit" style={{ padding: "10px 20px" }}>
+      <button type="submit" className={styles.submitButton}>
         Send Info
       </button>
 
       {submitted && (
-        <p style={{ color: "green", marginTop: "15px" }}>
+        <p className={styles.successMessage}>
           Your information was sent! Someone will get back to you shortly.
         </p>
       )}

@@ -1,5 +1,5 @@
 import React from "react";
-import MissingForm from "./components/MissingForm";
+import MissingForm from "./components/MissingForms/MissingForm";
 import keiko from "./assets/keiko.jpg";
 
 const App: React.FC = () => {
