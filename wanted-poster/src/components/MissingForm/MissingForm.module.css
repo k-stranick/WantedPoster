@@ -1,0 +1,59 @@
+.formWrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.inputField {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.submitButton {
+  align-self: flex-end;
+  padding: 10px 20px;
+  background-color: orangered !important;
+  color: white !important;
+  border: solid 1px orangered !important;
+  border-radius: 50px !important;
+  cursor: pointer;
+  text-decoration: none !important;
+}
+
+.submitButton:hover {
+  background-color: white !important;
+  color: orangered !important;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.submitButton:active {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+
+.successMessage {
+  color: whitesmoke;
+  margin-top: 15px;
+}
+
+.sunkenDark {
+  background-color: whitesmoke;
+  box-shadow: inset 4px 4px 8px #111, inset -4px -4px 8px #333;
+}
+
+@media screen and (max-width: 600px) {
+  .formWrapper {
+    padding: 1rem;
+  }
+
+  .submitButton {
+    padding: 5px 10px;
+  }
+}

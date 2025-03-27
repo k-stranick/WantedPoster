@@ -1,0 +1,16 @@
+.toastFixed {
+  position: fixed !important;
+  top: 2rem;
+  right: 2rem;
+  z-index: 1055;
+}
+
+/* Mobile-friendly override */
+@media (max-width: 768px) {
+  .toastFixed {
+    top: 1rem;
+    right: 50%;
+    transform: translateX(50%);
+    width: 70% !important;
+  }
+}
