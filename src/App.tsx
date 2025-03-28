@@ -3,7 +3,8 @@ import { Container, Image } from "react-bootstrap";
 import { MissingForm } from "./components/MissingForm";
 import { ToastPop } from "./components/ToastPop";
 import keikoImg from "./assets/keikoImg.jpg";
-import "./App.css";
+import { POSTER_INFO } from "./lib/constants";
+import "./css/App.css";
 
 /**
  * Main application component for the missing dog poster app.
@@ -31,47 +32,46 @@ const App: React.FC = () => {
   // useState is a React hook that allows you to add state to functional components.
   const [showToast, setShowToast] = useState(false); // State to control the visibility of the toast notification
   const [toastMessage, setToastMessage] = useState(""); // State to hold the message for the toast notification
+  const { description, reward, lastSeen, contact } = POSTER_INFO; // Destructuring the POSTER_INFO object for easier access to its properties
+  const handleToast = (msg: string) => {
+    setToastMessage(msg);
+    setShowToast(true);
+  }; // Function to set the toast message and show the toast notification
 
   return (
-    <Container className="main-wrapper">
-      <div className="content-box">
-        <h1 className="text-center mb-4">Missing: Keiko</h1>
-        <div className="mb-4 text-start sunken-dark poster-info">
-          <p>
-            Have you seen this dog? Please provide any information you have
-            about Keiko's whereabouts.
-          </p>
-          <p>
-            <strong>REWARD:</strong> $300
-          </p>
-          <p>
-            <strong>LAST SEEN:</strong> Near Millsboro, DE in Plantation Lakes
-          </p>
-          <p>
-            <strong>CONTACT:</strong> 302-228-8022
-          </p>
+    <>
+      <Container className="main-wrapper">
+        <div className="content-box">
+          <h1 className="text-center mb-4">Missing: Keiko</h1>
+          <div className="mb-4 text-start sunken-dark poster-info">
+            <p>{description}</p>
+            <p>
+              <strong>REWARD:</strong> {reward}
+            </p>
+            <p>
+              <strong>LAST SEEN:</strong> {lastSeen}
+            </p>
+            <p>
+              <strong>CONTACT:</strong> {contact}
+            </p>
+          </div>
+          <Image
+            src={keikoImg}
+            alt="Keiko IMG"
+            fluid
+            rounded
+            className="poster-img mb-4"
+          />
+          <MissingForm onToast={handleToast} />
         </div>
-        <Image
-          src={keikoImg}
-          alt="Keiko IMG"
-          fluid
-          rounded
-          className="poster-img mb-4"
-        />
-        <MissingForm
-          onToast={(msg: string) => {
-            setToastMessage(msg);
-            setShowToast(true);
-          }}
-        />
-        <ToastPop
-          show={showToast}
-          onClose={() => setShowToast(false)}
-          message={toastMessage}
-          variant="success"
-        />
-      </div>
-    </Container>
+      </Container>
+      <ToastPop
+        show={showToast}
+        onClose={() => setShowToast(false)}
+        message={toastMessage}
+        variant="success"
+      />
+    </>
   );
 };
 

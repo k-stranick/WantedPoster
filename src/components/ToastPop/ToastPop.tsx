@@ -1,28 +1,15 @@
 import React from "react";
 import { Toast, ToastContainer } from "react-bootstrap";
 import styles from "./ToastPop.module.css";
-
-/**
- * Props for the `ToastPop` component.
- *
- * @property {boolean} show - Whether the toast is visible.
- * @property {() => void} onClose - Function to close the toast.
- * @property {string} message - Message displayed in the toast body.
- * @property {"success" | "danger" | "warning" | "info"} [variant] - Bootstrap variant for toast background.
- */
-
-interface ToastPopProps {
-  show: boolean;
-  onClose: () => void;
-  message: string;
-  variant?: "success" | "danger" | "warning" | "info";
-}
+import { ToastPopProps } from "../../lib/types";
+import { getToastTitle } from "../../utils/getToastTitle";
 
 /**
  * `ToastPop` is a reusable toast notification component built with React-Bootstrap.
  *
  * @component
  * @param {ToastPopProps} props - Props for configuring the toast.
+ * @see {@link ToastPopProps} Defined in core/types.ts
  *
  * @description
  * This component renders a toast popup that can display messages for success, error, info, or warnings.
@@ -52,6 +39,8 @@ export const ToastPop: React.FC<ToastPopProps> = ({
   message,
   variant,
 }) => {
+  const headerTitle = getToastTitle(variant);
+
   return (
     <ToastContainer className={`p-3 ${styles.toastFixed}`}>
       <Toast
@@ -60,9 +49,11 @@ export const ToastPop: React.FC<ToastPopProps> = ({
         delay={3000}
         autohide
         bg={variant ?? "success"}
+        role="alert"
+        aria-live="assertive"
       >
         <Toast.Header>
-          <strong className="me-auto">Success!</strong>
+          <strong className="me-auto">{headerTitle}</strong>
         </Toast.Header>
         <Toast.Body>{message}</Toast.Body>
       </Toast>
