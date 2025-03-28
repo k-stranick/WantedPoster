@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/WantedPoster/static/css/main.483b2598.css",
+    "main.js": "/WantedPoster/static/js/main.5853c04e.js",
+    "static/js/453.0665f4ad.chunk.js": "/WantedPoster/static/js/453.0665f4ad.chunk.js",
+    "static/media/keikoImg.jpg": "/WantedPoster/static/media/keikoImg.17bdba2403e016ddb87d.jpg",
+    "index.html": "/WantedPoster/index.html",
+    "main.483b2598.css.map": "/WantedPoster/static/css/main.483b2598.css.map",
+    "main.5853c04e.js.map": "/WantedPoster/static/js/main.5853c04e.js.map",
+    "453.0665f4ad.chunk.js.map": "/WantedPoster/static/js/453.0665f4ad.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.483b2598.css",
+    "static/js/main.5853c04e.js"
+  ]
+}
