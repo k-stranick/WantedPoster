@@ -27,7 +27,7 @@ import "./css/App.css";
  * @see {@link ToastPop} For the notification popup used to confirm actions.
  */
 
-const App: React.FC = () => {
+export const App: React.FC = () => {
   // state syntax: const [state, setState] = useState(initialState);
   // useState is a React hook that allows you to add state to functional components.
   const [showToast, setShowToast] = useState(false); // State to control the visibility of the toast notification
@@ -74,5 +74,3 @@ const App: React.FC = () => {
     </>
   );
 };
-
-export default App;
