@@ -5,7 +5,8 @@
  */
 
 export const POSTER_INFO = {
-    reward: "$300",
+    name: "Keiko",
+    reward: 300,
     lastSeen: "Near Millsboro, DE in Plantation Lakes",
     contact: "302-228-8022",
     description: "Have you seen this dog? Please provide any information you have about Keiko's whereabouts.",

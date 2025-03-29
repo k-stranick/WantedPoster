@@ -31,3 +31,24 @@ export interface ToastPopProps {
 export interface MissingFormProps {
   onToast: (message: string) => void;
 }
+
+
+/**
+ * Props for the `MissingDetails` component.
+ * 
+ * @property {string} name - The name of the missing dog.
+ * @property {string} description - A description of the missing dog.   
+ * @property {string} image - The URL or path to the image of the missing dog.
+ * @property {number} reward - The reward amount for information leading to the dog's return.
+ * @property {string} lastSeen - The last known location of the missing dog.
+ * @property {string} contact - Contact information for reporting sightings or tips.
+ * 
+ */
+export interface MissingDetailsProps {
+  name: string;
+  description: string;
+  image: string;
+  reward: number;
+  lastSeen: string;
+  contact: string;
+}

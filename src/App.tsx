@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Container, Image } from "react-bootstrap";
 import { MissingForm } from "./components/MissingForm";
 import { ToastPop } from "./components/ToastPop";
+import { MissingDetails } from "./components/MissingDetails";
 import keikoImg from "./assets/keikoImg.jpg";
 import { POSTER_INFO } from "./lib/constants";
 import "./css/App.css";
@@ -32,7 +33,7 @@ export const App: React.FC = () => {
   // useState is a React hook that allows you to add state to functional components.
   const [showToast, setShowToast] = useState(false); // State to control the visibility of the toast notification
   const [toastMessage, setToastMessage] = useState(""); // State to hold the message for the toast notification
-  const { description, reward, lastSeen, contact } = POSTER_INFO; // Destructuring the POSTER_INFO object for easier access to its properties
+  const { name, description, reward, lastSeen, contact } = POSTER_INFO; // Destructuring the POSTER_INFO object for easier access to its properties
   const handleToast = (msg: string) => {
     setToastMessage(msg);
     setShowToast(true);
@@ -42,25 +43,13 @@ export const App: React.FC = () => {
     <>
       <Container className="main-wrapper">
         <div className="content-box">
-          <h1 className="text-center mb-4">Missing: Keiko</h1>
-          <div className="mb-4 text-start sunken-dark poster-info">
-            <p>{description}</p>
-            <p>
-              <strong>REWARD:</strong> {reward}
-            </p>
-            <p>
-              <strong>LAST SEEN:</strong> {lastSeen}
-            </p>
-            <p>
-              <strong>CONTACT:</strong> {contact}
-            </p>
-          </div>
-          <Image
-            src={keikoImg}
-            alt="Keiko IMG"
-            fluid
-            rounded
-            className="poster-img mb-4"
+          <MissingDetails
+            name={name}
+            description={description}
+            reward={reward}
+            lastSeen={lastSeen}
+            contact={contact}
+            image={keikoImg}
           />
           <MissingForm onToast={handleToast} />
         </div>

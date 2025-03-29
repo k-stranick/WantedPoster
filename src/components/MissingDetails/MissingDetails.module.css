@@ -1,0 +1,17 @@
+.posterImg {
+  border-radius: 4px;
+  border: 8px double #2e4870;
+  width: 100%;
+  max-width: 500px !important;
+  height: auto;
+  display: block;
+  margin: 1rem auto;
+  filter: sepia(40%);
+}
+
+.posterInfo {
+  background-color: whitesmoke;
+  border-radius: 20px;
+  padding: 2rem;
+  margin-top: 1rem;
+}
